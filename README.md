@@ -1,0 +1,2 @@
+# BatteryIndicator
+BatteryIndicator Qt App
