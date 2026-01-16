@@ -1,3 +1,7 @@
+# Excluded Folders
+build
+.DS_Store
+
 # Prerequisites
 *.d
 
