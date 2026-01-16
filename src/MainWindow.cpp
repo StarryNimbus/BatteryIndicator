@@ -6,12 +6,15 @@
 #include <Qt>
 
 MainWindow::MainWindow() : QObject(nullptr), m_view(nullptr) {
+  connect(&m_controller, &BatteryController::updateBatteryLevel, &m_model,
+          &BatteryModel::OnUpdateBatteryLevel);
+
   m_view = Build();
 
   // Context properties must be set before setSource()
-  // m_view->rootContext()->setContextProperty("isDarkMode", );
+  m_view->rootContext()->setContextProperty("batteryModel", &m_model);
 
-  m_view->loadFromModule("com.qtmenubar", "Main");
+  m_view->loadFromModule("com.BatteryIndicator", "Main");
   m_view->setGeometry(0, 0, 1000, 600); // default size when launched
 
   // Allow width to expand but set the minimum and maximum height to 600.

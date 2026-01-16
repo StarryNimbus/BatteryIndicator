@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "BatteryController.h"
+#include "BatteryModel.h"
 #include <QObject>
 #include <QQuickView>
 
@@ -15,7 +17,8 @@ private:
   QQuickView *Build() const;
 
   QQuickView *m_view;
-  bool m_isDarkMode;
+  BatteryModel m_model;
+  BatteryController m_controller;
 };
 
 #endif // MAINWINDOW_H

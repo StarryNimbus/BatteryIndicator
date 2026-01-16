@@ -20,6 +20,10 @@ set(RESOURCES_DIR "resources/")
 
 add_executable(BatteryIndicator
     ${RESOURCES_DIR}resources.qrc
+    ${SRC_DIR}BatteryController.h
+    ${SRC_DIR}BatteryController.cpp
+    ${SRC_DIR}BatteryModel.h
+    ${SRC_DIR}BatteryModel.cpp
     ${SRC_DIR}main.cpp
     ${SRC_DIR}MainWindow.cpp
     ${SRC_DIR}MainWindow.h
