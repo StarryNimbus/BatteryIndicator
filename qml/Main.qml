@@ -6,7 +6,12 @@ Rectangle {
     id: root
     width: 1000
     height: 600
-    color: "#F5F5F7"
+    color: '#000000'
 
-    // Add Image here
+    BatteryIndicator {
+        id: battery
+        anchors {
+            fill: parent
+        }
+    }
 }

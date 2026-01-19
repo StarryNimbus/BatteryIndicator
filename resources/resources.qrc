@@ -1,5 +1,9 @@
-<!DOCTYPE RCC>
 <RCC version="1.0">
   <qresource prefix="/">
+    <file>images/battery_0.svg</file>
+    <file>images/battery_25.svg</file>
+    <file>images/battery_50.svg</file>
+    <file>images/battery_75.svg</file>
+    <file>images/battery_100.svg</file>
   </qresource>
 </RCC>
