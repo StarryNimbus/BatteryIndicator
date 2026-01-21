@@ -1,6 +1,6 @@
 # BatteryIndicator
 This BatteryIndicator Qt App demonstrates the the Model-View-Controller (MVC)
-pattern using Qt 6, CMake, C++17, and QML. The BatteryModel is the model. The
+pattern using Qt 6, Qml, CMake, and C++17,. The BatteryModel is the model. The
 QML is the view. And the BatteryController is the controller. This project
 simulates a battery draining over time and shows how to connect C++ models to a
 QML UI using Qt’s meta-object system.
