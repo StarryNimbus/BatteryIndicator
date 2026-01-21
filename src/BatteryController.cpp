@@ -25,10 +25,8 @@ BatteryController::BatteryController() : QObject() {
 
   // Simulate battery level updates based on the drain rate
   QTimer *timer = new QTimer(this);
-  connect(timer, &QTimer::timeout, this, [this]() {
-    qDebug() << "emitting updateBatteryLevel";
-    emit updateBatteryLevel(m_batteryDrainRate);
-  });
+  connect(timer, &QTimer::timeout, this,
+          [this]() { emit updateBatteryLevel(m_batteryDrainRate); });
   timer->start(1000); // Update every 1 second
 }
 

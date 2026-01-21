@@ -43,7 +43,7 @@ Rectangle {
             text: batteryModel.batteryLevel + "%"
 
             verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
+            horizontalAlignment: Text.AlignLeft
 
             color: "white"
             font.pixelSize: 25
