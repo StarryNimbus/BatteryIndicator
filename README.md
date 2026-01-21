@@ -35,6 +35,12 @@ BatteryIndicator is a minimal Qt application that:
   <source src="videos/BatteryIndicator.mov" type="video/mp4">
 </video>
 
+Note, if you cloned this repo, you can watch the video while previewing this
+README. However, this video won't show on Github. So you can either check out
+the demo in the videos folder or view the screenshot of the app here.
+
+![30% Battery](screenshots/batteryIndicator.png)
+
 ## Build requirements
 - **Qt 6.x**
 - **CMake 3.16+**
