@@ -1,4 +1,5 @@
 import Battery 1.0
+import QtQuick.Layouts
 import QtQuick
 import QtQuick.Controls
 
@@ -6,9 +7,9 @@ Item {
     id: root
 
     Rectangle {
-        id: test
+        id: background
         anchors.fill: parent
-        color: "green"
+        color: "white"
     }
 
     ButtonGroup {
@@ -21,13 +22,20 @@ Item {
         }
     }
 
-    Column {
+    RowLayout {
         anchors {
             centerIn: parent
         }
+        spacing: 50
         Repeater {
             model: batteryModel.batteryDrainRates()
             RadioButton {
+                id: control
+
+                property var drainRate: modelData
+                ButtonGroup.group: drainGroup
+                checked: batteryModel.drainRate === modelData
+
                 text: {
                     switch (modelData) {
                     case BatteryModel.SLOW:
@@ -38,9 +46,8 @@ Item {
                         return "Fast";
                     }
                 }
-                property var drainRate: modelData
-                ButtonGroup.group: drainGroup
-                checked: batteryModel.drainRate === modelData
+                font.pixelSize: 16
+                font.weight: Font.DemiBold
             }
         }
     }

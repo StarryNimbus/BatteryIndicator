@@ -19,8 +19,8 @@ Rectangle {
     SimulateBatteryDrain {
         id: simulator
 
-        implicitWidth: 250
-        implicitHeight: 250
+        implicitWidth: parent.width
+        implicitHeight: 50
 
         anchors {
             left: parent.left
