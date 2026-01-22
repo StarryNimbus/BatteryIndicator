@@ -33,6 +33,7 @@ add_executable(BatteryIndicator
 set(plain_qml_files
     ${QML_DIR}Main.qml
     ${QML_DIR}BatteryIndicator.qml
+    ${QML_DIR}SimulateBatteryDrain.qml
 )
 set(qml_singletons
     #TBD

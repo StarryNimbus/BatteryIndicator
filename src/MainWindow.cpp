@@ -7,7 +7,7 @@
 
 MainWindow::MainWindow() : QObject(nullptr), m_view(nullptr) {
   connect(&m_controller, &BatteryController::updateBatteryLevel, &m_model,
-          &BatteryModel::OnUpdateBatteryLevel);
+          &BatteryModel::onUpdateBatteryLevel);
 
   m_view = Build();
 

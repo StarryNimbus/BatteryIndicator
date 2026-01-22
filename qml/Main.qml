@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
+import Battery 1.0
 
 Rectangle {
     id: root
@@ -12,6 +13,18 @@ Rectangle {
         id: battery
         anchors {
             fill: parent
+        }
+    }
+
+    SimulateBatteryDrain {
+        id: simulator
+
+        implicitWidth: 250
+        implicitHeight: 250
+
+        anchors {
+            left: parent.left
+            bottom: parent.bottom
         }
     }
 }
