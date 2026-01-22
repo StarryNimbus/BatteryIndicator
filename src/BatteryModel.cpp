@@ -23,24 +23,6 @@ QString DrainRateConverter(BatteryModel::BatteryDrainRate rate) {
 BatteryModel::BatteryModel() : QObject() {
   qRegisterMetaType<BatteryDrainRate>();
   qmlRegisterType<BatteryModel>("Battery", 1, 0, "BatteryModel");
-
-  connect(this, &BatteryModel::batteryLevelChanged, this,
-          [this](BatteryDrainRate rate) {
-            if (m_batteryLevel <= 0) {
-              qDebug() << "Battery depleted, resetting to 100%";
-              m_batteryLevel = 100;
-              return;
-            }
-
-            if (rate == BatteryDrainRate::SLOW) {
-              m_batteryLevel -= 1;
-            } else if (rate == BatteryDrainRate::MEDIUM) {
-              m_batteryLevel -= 5;
-            } else if (rate == BatteryDrainRate::FAST) {
-              m_batteryLevel -= 10;
-            }
-            qDebug() << "Battery level:" << m_batteryLevel << "%";
-          });
 };
 
 QVariantList BatteryModel::batteryDrainRates() const {
@@ -61,6 +43,22 @@ void BatteryModel::updateBatteryDrainRate(BatteryDrainRate rate) {
   m_batteryDrainRate = rate;
 }
 
-void BatteryModel::onUpdateBatteryLevel() {
-  emit batteryLevelChanged(m_batteryDrainRate);
+void BatteryModel::updateBatteryLevel() {
+  if (m_batteryLevel <= 0) {
+    qDebug() << "Battery depleted, resetting to 100%";
+    m_batteryLevel = 100;
+    return;
+  }
+
+  if (m_batteryDrainRate == BatteryDrainRate::SLOW) {
+    m_batteryLevel -= 1;
+  } else if (m_batteryDrainRate == BatteryDrainRate::MEDIUM) {
+    m_batteryLevel -= 5;
+  } else if (m_batteryDrainRate == BatteryDrainRate::FAST) {
+    m_batteryLevel -= 10;
+  }
+  qDebug() << "Battery level:" << m_batteryLevel << "%";
+  emit batteryLevelChanged();
 }
+
+void BatteryModel::onUpdateBatteryLevel() { updateBatteryLevel(); }

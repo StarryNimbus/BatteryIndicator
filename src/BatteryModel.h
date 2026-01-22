@@ -25,9 +25,10 @@ public:
   Q_INVOKABLE void updateBatteryDrainRate(BatteryDrainRate rate);
 
   int getBatteryLevel() const { return m_batteryLevel; };
+  void updateBatteryLevel();
 
 signals:
-  void batteryLevelChanged(BatteryDrainRate rate);
+  void batteryLevelChanged();
 
 public slots:
   void onUpdateBatteryLevel();
