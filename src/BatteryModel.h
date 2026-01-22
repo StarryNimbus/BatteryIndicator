@@ -22,9 +22,10 @@ public:
   // reevaluate. Therefore, it does not need to be a Q_PROPERTY.
   Q_INVOKABLE QVariantList batteryDrainRates() const;
 
+  int getBatteryLevel() const { return m_batteryLevel; };
+
   Q_INVOKABLE void updateBatteryDrainRate(BatteryDrainRate rate);
 
-  int getBatteryLevel() const { return m_batteryLevel; };
   void updateBatteryLevel();
 
 signals:

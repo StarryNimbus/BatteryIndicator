@@ -1,20 +1,19 @@
 # BatteryIndicator
-This BatteryIndicator Qt App demonstrates the the Model-View-Controller (MVC)
-pattern using Qt 6, Qml, CMake, and C++17,. The BatteryModel is the model. The
-QML is the view. And the BatteryController is the controller. This project
-simulates a battery draining over time and shows how to connect C++ models to a
-QML UI using Qt’s meta-object system.
+This BatteryIndicator Qt App demonstrates the the Model-View-Controller (MVC) pattern using Qt 6, Qml, CMake, and C++17,. The BatteryModel is the model. The QML is the view. And the BatteryController is the controller. This project simulates a battery draining over time and shows how to connect C++ models to a QML UI using Qt’s meta-object system.
 
 ## Overview
 BatteryIndicator is a minimal Qt application that:
 - Uses a BatteryModel as the data model (battery level state).
 - Uses QML for the UI (view).
-- Uses BatteryController for logic and timer updates (controller).
+- Uses BatteryController for timer updates (controller).
 - Logs battery state changes in the UI.
+- Allows the user to simulate battery draining rate using radio buttons
 
 ## Key Concepts Demonstrated
 - Qt signals & slots and timer-based updates
 - Qt properties exposed to QML via Q_PROPERTY
+- C++ enums exposed to QT/QML using qRegisterMetaType, qmlRegisterType, Q_DECLARE_METATYPE, and Q_ENUM
+- Q_INVOKABLE function (that toggles battery drain speed) hooked up to a button group consisting of radio buttons
 - C++ and QML integration
 - Qt 6 + CMake project structure
 - Clean, readable and minimal-dependency code
@@ -29,6 +28,11 @@ BatteryIndicator is a minimal Qt application that:
 5. OnUpdateBatteryLevel triggers a batteryLevelChanged signal callback.
 6. From there, the model updates its batteryLevel internally and emits a batteryLevelChanged signal.
 7. The QML UI binds to batteryLevel and updates itself automatically whenever the batteryLevelChanged is emitted.
+
+Optionally, the user can use the button group to toggle the battery drain speed.
+- Slow = 1% drain
+- Medium = 5% drain
+- Fast = 10% drain
 
 ## Videos
 <video width="640" height="480" controls>
